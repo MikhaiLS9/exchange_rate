@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-end;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px;
+
+  max-width: 1380px;
+  width: 100%;
+}

@@ -1,0 +1,47 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  border: 0.2em solid var(--accent-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.inputFocus {
+  border-color: var(--accent-hover-color);
+  /* border-top-color: transparent; */
+  z-index: 10;
+  position: relative;
+}
+
+.optionsList {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border: 0.2em solid var(--accent-hover-color);
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: var(--text-list-color);
+  color: var(--text-button-color);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 5;
+}
+
+.option {
+  padding: 5px;
+  padding-left: 15px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--accent-hover-color);
+}

@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url(../Lora/Lora-Regular.woff);
+}
+body {
+  font-family: "Lora";
+  margin: 0;
+  padding: 0;
+}
+
+ul > li {
+  list-style-type: none;
+}
+
+input {
+  box-sizing: border-box;
+}
+a {
+  color: var(--text-color);
+  text-decoration: dashed;
+}
+img {
+  object-fit: cover;
+}
+
+button:hover {
+  background: var(--accent-hover-color);
+}
+
+:root {
+  --accent-color: #4d96ff;
+  --accent-hover-color: #094292;
+  --text-color: #343a40;
+  --text-list-color: #6c757d;
+  --text-button-color: #ffffff;
+  /* --root-background: #F8F9FA; */
+  --root-background: #c4b6f791;
+  --secondary-accent-color: #5d39e391;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+}
+
+body > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}

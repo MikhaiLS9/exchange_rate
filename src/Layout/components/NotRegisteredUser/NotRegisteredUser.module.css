@@ -1,0 +1,7 @@
+.block {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  flex-wrap: wrap;
+  width: 100%;
+}

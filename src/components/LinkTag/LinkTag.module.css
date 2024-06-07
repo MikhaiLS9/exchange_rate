@@ -1,0 +1,65 @@
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 10px 30px;
+  max-width: 160px;
+  width: 100%;
+  color: var(--text-color);
+  transition: transform 0.3s ease, background-color 1s ease, color 0.6s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+
+.button {
+  background: var(--accent-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.buttonXl {
+  border-radius: 20px;
+  background: var(--accent-color);
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 270px;
+}
+
+.button:hover,
+.buttonXl:hover {
+  background: var(--accent-hover-color);
+  color: var(--text-button-color);
+  transform: scale(1.12);
+}
+
+.ghost {
+  font-size: 1.2rem;
+  background: none;
+  border: 2px solid var(--accent-color);
+}
+
+.ghostXl {
+  font-size: 1.5rem;
+  background: none;
+  border: 2px solid var(--accent-color);
+  width: 100%;
+  max-width: 270px;
+}
+
+.ghost:hover,
+.ghostXl:hover {
+  background: var(--accent-hover-color);
+  color: var(--text-button-color);
+  transform: scale(1.12);
+}
+
+.isActive {
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+.page_wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 35px;
+  background: var(--secondary-accent-color);
+  border-radius: 25px;
+  padding: 25px;
+}
+
+.resultWrapper {
+  max-width: 450px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--text-button-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.not_authenticated {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  padding: 25px;
+}

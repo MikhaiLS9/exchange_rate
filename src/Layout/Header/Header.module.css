@@ -1,0 +1,47 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-areas: "logo nav buttons";
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.nav {
+  grid-area: nav;
+}
+.buttons {
+  grid-area: buttons;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo buttons"
+      "nav nav";
+  }
+}
+
+@media (max-width: 950px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo logo"
+      "nav buttons";
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "buttons"
+      "logo"
+      "nav";
+  }
+}

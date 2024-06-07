@@ -1,0 +1,12 @@
+.navigation_wrapper {
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
