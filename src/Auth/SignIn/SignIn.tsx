@@ -2,8 +2,10 @@ import { FC, FormEvent } from "react";
 import Button from "../../components/Button/Button";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { routers } from "../../helpers/routers/routers";
+import styles from "../signboard.module.css"; // Убедитесь, что путь к стилям верный
+import Ptag from "../../components/Ptag/Ptag";
 
 const SignIn: FC = () => {
   const navigate = useNavigate();
@@ -22,25 +24,32 @@ const SignIn: FC = () => {
         })
         .catch((error) => console.error(error));
   };
+
   return (
-    <div>
-      <form onSubmit={submitForm}>
+    <div className={styles.form_container}>
+      <form onSubmit={submitForm} className={styles.form}>
         <label htmlFor="emailIn">
-          Имаил
+          <Ptag size="medium">Имайл</Ptag>
           <input type="email" name="emailIn" id="emailIn" placeholder="email" />
         </label>
 
         <label htmlFor="passwordIn">
-          Пароль
+          <Ptag size="medium">Пароль</Ptag>
           <input
             type="password"
             name="passwordIn"
-            placeholder="passwordIn"
+            placeholder="password"
             id="passwordIn"
           />
         </label>
 
-        <Button>Войти</Button>
+        <div className={styles.buttons_block}>
+          <Button>Войти</Button>
+          <Link to={routers.register}>
+            <Ptag size="small">Нет аккаунта? </Ptag>
+            <span>зарегистрируйся</span>
+          </Link>
+        </div>
       </form>
     </div>
   );

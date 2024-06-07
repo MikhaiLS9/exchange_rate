@@ -14,7 +14,6 @@ import ConvertCurrencyPage from "./page/ConvertCurrencyPage/ConvertCurrencyPage"
 import ExchangeRateInfo from "./Layout/components/ExchangeRateInfo/ExchangeRateInfo";
 import CurrencyPageInfo from "./page/CurrencyInfoPage/CurrencyInfoPage";
 
-
 function App() {
   const router = createBrowserRouter([
     {
@@ -23,14 +22,14 @@ function App() {
         <>
           <Header />
           <Main>
-          <ExchangeRateInfo />
+            <ExchangeRateInfo />
             <NotAuthenticated>
               <NotRegisteredUser />
             </NotAuthenticated>
 
             <CurrencyRateCard />
           </Main>
-          <Footer/>
+          <Footer />
         </>
       ),
     },
@@ -40,10 +39,10 @@ function App() {
         <>
           <Header />
           <Main>
-          <ExchangeRateInfo />
+            <ExchangeRateInfo />
             <ConvertCurrencyPage />
           </Main>
-          <Footer/>
+          <Footer />
         </>
       ),
     },
@@ -55,7 +54,7 @@ function App() {
           <Main>
             <div>wwwww</div>
           </Main>
-          <Footer/>
+          <Footer />
         </>
       ),
     },
@@ -65,10 +64,9 @@ function App() {
         <>
           <Header />
           <Main>
-            
-          <CurrencyPageInfo/>
+            <CurrencyPageInfo />
           </Main>
-          <Footer/>
+          <Footer />
         </>
       ),
     },
@@ -77,8 +75,9 @@ function App() {
       path: routers.login,
       element: (
         <>
+          <Header />
           <SignIn />
-          <Footer/>
+          <Footer />
         </>
       ),
     },
@@ -86,8 +85,9 @@ function App() {
       path: routers.register,
       element: (
         <>
+          <Header />
           <SignUp />
-          <Footer/>
+          <Footer />
         </>
       ),
     },
