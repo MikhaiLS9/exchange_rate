@@ -1,6 +1,23 @@
-.auth_button_wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    width: 100%;
+.auth_button_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 100%;
+}
+
+.logout_block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+
+@media (max-width: 600px) {
+  .auth_button_wrapper {
+    justify-content: center;
+  }
 }

@@ -9,8 +9,34 @@
   color: #333;
   text-align: center;
   width: 100%;
+  left: 0;
 }
 
 .footer_item {
   padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer_item:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .footer_item {
+    padding: 10px;
+  }
+
+  .footer_item:not(:first-child) {
+    border-top: 1px solid #e5e5e5;
+  }
 }

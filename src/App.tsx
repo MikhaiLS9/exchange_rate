@@ -13,6 +13,7 @@ import Footer from "./Layout/Footer/Footer";
 import ConvertCurrencyPage from "./page/ConvertCurrencyPage/ConvertCurrencyPage";
 import ExchangeRateInfo from "./Layout/components/ExchangeRateInfo/ExchangeRateInfo";
 import CurrencyPageInfo from "./page/CurrencyInfoPage/CurrencyInfoPage";
+import AboutPage from "./page/AboutPage/AboutPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -52,7 +53,7 @@ function App() {
         <>
           <Header />
           <Main>
-            <div>wwwww</div>
+            <AboutPage/>
           </Main>
           <Footer />
         </>

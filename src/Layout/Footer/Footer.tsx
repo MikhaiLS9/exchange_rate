@@ -10,7 +10,7 @@ const Footer: FC<IFooterProps> = () => {
       <div
         className={styles.footer_item}
       >{`© ${currentYear}, Все права защищены`}</div>
-      <div className={styles.footer_item}>Время</div>
+      <div className={styles.footer_item}>Связаться с нами</div>
     </footer>
   );
 };

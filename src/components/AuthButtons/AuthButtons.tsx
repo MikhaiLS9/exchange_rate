@@ -28,9 +28,12 @@ const AuthButtons: FC<IAuthButtonsProps> = () => {
         setIsAuthenticated({ state: false, user: null });
       }
     });
+    console.log(auth);
 
     return () => authUser();
   }, []);
+
+  console.log(isAuthenticated);
 
   return (
     <div className={styles.auth_button_wrapper}>
@@ -44,8 +47,14 @@ const AuthButtons: FC<IAuthButtonsProps> = () => {
           </LinkTag>
         </>
       )}
-      {isAuthenticated.state && <Button appearance="medium" onClick={logout}>Выйти</Button>}
-      {isAuthenticated?.user}
+      <div className={styles.logout_block}>
+        {isAuthenticated?.user}
+        {isAuthenticated.state && (
+          <Button appearance="medium" onClick={logout}>
+            Выйти
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

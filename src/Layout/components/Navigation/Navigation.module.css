@@ -10,3 +10,9 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+@media (max-width: 600px) {
+  .links {
+    justify-content: center;
+  }
+}
