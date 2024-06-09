@@ -1,20 +1,16 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import Htag from "../Htag/Htag";
 import Ptag from "../Ptag/Ptag";
 import { ICurrencyInfoDisplayProps } from "./CurrencyInfoDisplay.props";
-import styles from './CurrencyInfoDisplay.module.css'
+import styles from "./CurrencyInfoDisplay.module.css";
 
-const CurrencyInfoDisplay: FC<ICurrencyInfoDisplayProps> = ({
-  headerText,
-  result,
-  
-}) => {
+const InfoDisplay: FC<ICurrencyInfoDisplayProps> = ({ headerText, result }) => {
   return (
-    <span className={styles.currency_info_wrapper}>
+    <div className={styles.currency_info_wrapper}>
       <Htag tag="h2">{headerText}</Htag>
       <Ptag size="medium">{result}</Ptag>
-    </span>
+    </div>
   );
 };
-
+const CurrencyInfoDisplay = memo(InfoDisplay);
 export default CurrencyInfoDisplay;

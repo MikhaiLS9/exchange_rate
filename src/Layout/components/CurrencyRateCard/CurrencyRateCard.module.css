@@ -15,26 +15,6 @@
   align-items: center;
 }
 
-.cart_header_wrapper > span {
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.cart_header_wrapper > span::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0.3rem;
-  background: var(--secondary-accent-color);
-  left: 0;
-  bottom: -0.3rem;
-  transition: width 0.5s ease;
-}
-
-.cart_header_wrapper > span:hover::after {
-  width: 100%;
-  height: 0.3rem;
-}
 
 .conclusion_currency_wrapper {
   display: flex;

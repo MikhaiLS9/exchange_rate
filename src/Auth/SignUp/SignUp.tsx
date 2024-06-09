@@ -67,7 +67,7 @@ const SignUp: FC = () => {
           />
         </label>
         <div className={styles.buttons_block}>
-          <Button>Зарегистрироваться</Button>
+          <Button appearance="large">Зарегистрироваться</Button>
 
           <Link to={routers.login}>
             <Ptag size="small">Есть аккаунт?</Ptag>

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC,} from "react";
 import { IExchangeRateInfoProps } from "./ExchangeRateInfo.props";
 import ConvertRatePair from "../ConvertRatePair/ConvertRatePair";
 import { useGetSupportedCodesQuery } from "../../../services/ExchangeRateQuery";
@@ -15,7 +15,7 @@ import useLastBaseCurrency from "../../../hooks/useLastCurrency/useLastBaseCurre
 import WithAuth from "../../../HOC/WithAuth/WithAuth";
 import CurrencyInfoDisplay from "../../../components/CurrencyInfoDisplay/CurrencyInfoDisplay";
 import Htag from "../../../components/Htag/Htag";
-import styles from './ExchangeRateInfo.module.css'
+import styles from "./ExchangeRateInfo.module.css";
 
 const ExchangeRateInfo: FC<IExchangeRateInfoProps> = WithAuth(
   ({ isAuthenticated }) => {
@@ -27,9 +27,7 @@ const ExchangeRateInfo: FC<IExchangeRateInfoProps> = WithAuth(
 
     const isSuccess = data?.result === "success";
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Произошла ошибка</div>;
-
+   
     const handleCurrencySelect = (code: string) => {
       dispatch(addBaseCurrency(code));
     };
@@ -39,30 +37,36 @@ const ExchangeRateInfo: FC<IExchangeRateInfoProps> = WithAuth(
     };
 
     return (
-      <div className={styles.info_wrapper}>
-        {isAuthenticated && location.pathname === routers.convert ? (
-          <ConvertRatePair />
-        ) : (
-          <>
-            <Htag tag="h2">Выберите валюту</Htag>
+      <>
+        {isLoading && <div>Loading ...</div>}
+        {error && <div>Произошла ошибка</div>}
+        <div className={styles.info_wrapper}>
+          {isAuthenticated && location.pathname === routers.convert ? (
+            <ConvertRatePair />
+          ) : (
+            <>
+              <Htag tag="h2">Выберите валюту</Htag>
 
-            <CurrencyInfoDisplay
-              headerText="Ваша валюта"
-              result={lastBaseCurrency}
-            />
-            <div className={styles.input_wrapper}>
-              {isSuccess && (
-                <CurrencySelect
-                  type="text"
-                  options={data?.supported_codes}
-                  onSelect={handleCurrencySelect}
-                />
-              )}
-              <Button onClick={clearUserCurrency}>Clear</Button>
-            </div>
-          </>
-        )}
-      </div>
+              <CurrencyInfoDisplay
+                headerText="Ваша валюта"
+                result={lastBaseCurrency}
+              />
+              <div className={styles.input_wrapper}>
+                {isSuccess && (
+                  <CurrencySelect
+                    type="text"
+                    options={data?.supported_codes}
+                    onSelect={handleCurrencySelect}
+                   
+                  />
+                )}
+                
+                <Button onClick={clearUserCurrency}>Clear</Button>
+              </div>
+            </>
+          )}
+        </div>
+      </>
     );
   }
 );

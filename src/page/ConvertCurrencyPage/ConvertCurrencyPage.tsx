@@ -54,18 +54,17 @@ const ConvertCurrencyPage: FC<IConvertCurrencyPageProps> = WithAuth(({ isAuthent
           )}
 
           {data && (
-            <span className={styles.resultWrapper}>
+            <div className={styles.resultWrapper}>
               <Ptag size="medium">
                 <span className={styles.highlight}>
                   {lastAmountCurrency}шт.
                 </span>{" "}
                 {lastBaseCurrency} =
                 <span className={styles.highlight}>
-                  {" "}
                   {lastTargetCurrency} {data?.conversion_result}
                 </span>
               </Ptag>
-            </span>
+            </div>
           )}
         </div>
       )}

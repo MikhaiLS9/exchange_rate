@@ -42,11 +42,9 @@ const AuthButtons: FC<IAuthButtonsProps> = () => {
           <LinkTag appearance="buttonXl" href={routers.register}>
             Зарегистрироваться
           </LinkTag>
-          {/* <Button onClick={login}></Button> */}
-          {/* <Button onClick={register}>Зарегистрироваться</Button> */}
         </>
       )}
-      {isAuthenticated.state && <Button onClick={logout}>Выйти</Button>}
+      {isAuthenticated.state && <Button appearance="medium" onClick={logout}>Выйти</Button>}
       {isAuthenticated?.user}
     </div>
   );

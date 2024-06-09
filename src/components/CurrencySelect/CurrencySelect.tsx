@@ -16,6 +16,7 @@ const CurrencySelect: FC<CurrencySelectProps> = ({
   const [search, setSearch] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [placeholder, setPlaceholder] = useState<string>("Поиск...");
 
   useClickOutside(wrapperRef, () => {
     setIsOpen(false);
@@ -25,6 +26,7 @@ const CurrencySelect: FC<CurrencySelectProps> = ({
   const handleSelect = (currency: string) => {
     onSelect(currency);
     setIsOpen(false);
+    setPlaceholder(currency);
   };
 
   const filteredOptions = options.filter(([code]) =>
@@ -39,7 +41,7 @@ const CurrencySelect: FC<CurrencySelectProps> = ({
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onFocus={() => setIsOpen(true)}
-        placeholder="Поиск..."
+        placeholder={placeholder}
       />
       {isOpen && (
         <ul className={styles.optionsList}>

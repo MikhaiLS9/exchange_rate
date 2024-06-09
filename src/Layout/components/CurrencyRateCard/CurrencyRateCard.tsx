@@ -1,14 +1,12 @@
 import { FC, useState } from "react";
 import { ICurrencyRateCardProps } from "./CurrencyRateCard.props";
 import useLastBaseCurrency from "../../../hooks/useLastCurrency/useLastBaseCurrency/useLastBaseCurrency";
-import Button from "../../../components/Button/Button";
 import { useGetLatestRatesQuery } from "../../../services/ExchangeRateQuery";
 import CurrencySelect from "../../../components/CurrencySelect/CurrencySelect";
 import CurrencyInfoDisplay from "../../../components/CurrencyInfoDisplay/CurrencyInfoDisplay";
 import styles from "./CurrencyRateCard.module.css";
-import Ptag from "../../../components/Ptag/Ptag";
-import { Link } from "react-router-dom";
-import { routers } from "../../../helpers/routers/routers";
+import LinkToConvert from "../../../components/LinkToConvert/LinkToConvert";
+
 
 const CurrencyRateCard: FC<ICurrencyRateCardProps> = () => {
   const [selectedCurrency, setSelectedCurrency] = useState<{
@@ -19,7 +17,7 @@ const CurrencyRateCard: FC<ICurrencyRateCardProps> = () => {
     valueCurrency: null,
   });
   const lastBaseCurrency = useLastBaseCurrency();
-  const { data, error, isLoading, refetch } = useGetLatestRatesQuery(
+  const { data, error, isLoading } = useGetLatestRatesQuery(
     { baseCurrency: lastBaseCurrency },
     { skip: !lastBaseCurrency }
   );
@@ -40,12 +38,6 @@ const CurrencyRateCard: FC<ICurrencyRateCardProps> = () => {
     });
   };
 
-  const getConversionRates = () => {
-    if (lastBaseCurrency) {
-      refetch();
-    }
-  };
-
   return (
     <div className={styles.cart_wrapper}>
       <div className={styles.cart_header_wrapper}>
@@ -53,13 +45,17 @@ const CurrencyRateCard: FC<ICurrencyRateCardProps> = () => {
           headerText="Ваша валюта:"
           result={lastBaseCurrency}
         />
-        <span>
-          <Link to={routers.convert}>
-            <Ptag size="medium">Для количества перейдите по ссылки</Ptag>
-          </Link>
-        </span>
+        <LinkToConvert />
       </div>
-
+      <span className={styles.conclusion_currency_wrapper}>
+        Хочу купить :
+        <CurrencySelect
+          options={currency}
+          type="text"
+          onSelect={handleCurrencySelect}
+        />
+      </span>
+      {error && <div>Произошла ошибка</div>}
       {isLoading && <div>Загружаем валюту...</div>}
       {isSuccess && (
         <div className={styles.conclusion_currency_wrapper}>
@@ -69,20 +65,6 @@ const CurrencyRateCard: FC<ICurrencyRateCardProps> = () => {
           </span>
         </div>
       )}
-      {error && <div>Произошла ошибка</div>}
-      <span className={styles.conclusion_currency_wrapper}>
-        Хочу купить
-        {}
-        <CurrencySelect
-          options={currency}
-          type="text"
-          onSelect={handleCurrencySelect}
-        />
-      </span>
-      <span className={styles.conclusion_currency_wrapper}>
-        Для обновления запроса нажмите
-        <Button onClick={getConversionRates}>Запрос</Button>
-      </span>
     </div>
   );
 };

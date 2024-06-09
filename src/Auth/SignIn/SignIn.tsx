@@ -44,7 +44,7 @@ const SignIn: FC = () => {
         </label>
 
         <div className={styles.buttons_block}>
-          <Button>Войти</Button>
+          <Button appearance="medium">Войти</Button>
           <Link to={routers.register}>
             <Ptag size="small">Нет аккаунта? </Ptag>
             <span>зарегистрируйся</span>

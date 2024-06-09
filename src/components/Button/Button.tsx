@@ -16,7 +16,6 @@ const Button: FC<IButtonProps> = ({
         [styles.small]: appearance === "small",
         [styles.medium]: appearance === "medium",
         [styles.large]: appearance === "large",
-        [styles.svgIcon]: appearance === "svgIcon",
       })}
       {...arg}
     >
